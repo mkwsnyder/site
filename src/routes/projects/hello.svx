@@ -1,0 +1,14 @@
+---
+title: test title
+date: 2024-09-11
+---
+<script>
+  import Icon from '$lib/components/Icon.svelte';
+</script>
+
+# hello world
+
+
+<Icon icon="github" />
+
+asdf
