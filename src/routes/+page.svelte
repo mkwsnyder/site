@@ -9,13 +9,13 @@
 		github?: string;
 		youtube?: string;
 	}[] = [
-		{
-			name: 'Untitled Space Game',
-			description: 'description',
-			link: '',
+		// {
+			// name: 'Untitled Space Game',
+			// description: 'description',
+			// link: '',
 			// github: 'yeehaw',
 			// youtube: 'asdf',
-		},
+		// },
 		// {
 		// 	name: 'This website',
 		// 	description: 'yeehaw',
@@ -77,7 +77,7 @@
 			information. I will be updating this over the next few days to get this up to a decent level
 			of quality.
 		</p>
-		<p></p>
+		<p>Check back on 2024-11-25 for a more "complete" version.</p>
 	</div>
 
 	<div class="projects">
