@@ -1,0 +1,30 @@
+html {
+	color-scheme: dark light;
+	/* TODO: in the actual theme selectors, force `color-scheme` to be either dark or light */
+
+	background: black;
+	color: #dfdada;
+
+	/* temp font settings */
+	font-family: 'Inter', sans-serif;
+	line-height: 1.5;
+}
+
+/*:root {*/
+/*	--sm: 640px;*/
+/*	--md: 768px;*/
+/*	--lg: 1024px;*/
+/*	--xl: 1280px;*/
+/*	--xxl: 1536px;*/
+/*}*/
+
+/* temporary until I actually write a decent style sheet */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 0.75em;
+}
