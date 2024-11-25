@@ -8,9 +8,3 @@ status: In Development
 madeWith: [Svelte, TypeScript]
 type: Personal
 ---
-
-## hello world
-
-```python
-print("hello world")
-```

@@ -27,43 +27,43 @@
 	</div>
 {/key}
 
-<div class="hide">
-	<div id="test">
-		{#each Array(100) as _}
-			this site isn't done yet.&nbsp;
-		{/each}
-	</div>
-</div>
+<!--<div class="hide">-->
+<!--	<div id="test">-->
+<!--		{#each Array(100) as _}-->
+<!--			this site isn't done yet.&nbsp;-->
+<!--		{/each}-->
+<!--	</div>-->
+<!--</div>-->
 
-<div class="fake-body"></div>
+<!--<div class="fake-body"></div>-->
 
 <style>
-	.hide {
-		height: 0;
-		overflow: hidden;
-	}
+	/*.hide {*/
+	/*	height: 0;*/
+	/*	overflow: hidden;*/
+	/*}*/
 
-	#test {
-		text-wrap: nowrap;
-		font-size: 2em;
-		font-weight: bolder;
-		color: #131111;
-	}
+	/*#test {*/
+	/*	text-wrap: nowrap;*/
+	/*	font-size: 2em;*/
+	/*	font-weight: bolder;*/
+	/*	color: #131111;*/
+	/*}*/
 
-	.fake-body {
-		position: absolute;
-		inset: -30vh 30vh 30vw -30vw;
-		transform: rotate(10deg);
-		background-image: -moz-element(#test); /* why are you allowed to do this lol */
-		background-repeat: repeat;
-		height: 160dvh;
-		width: 160dvw;
-		z-index: -1;
-	}
+	/*.fake-body {*/
+	/*	position: absolute;*/
+	/*	inset: -30vh 30vh 30vw -30vw;*/
+	/*	transform: rotate(10deg);*/
+	/*	background-image: -moz-element(#test); !* why are you allowed to do this lol *!*/
+	/*	background-repeat: repeat;*/
+	/*	height: 160dvh;*/
+	/*	width: 160dvw;*/
+	/*	z-index: -1;*/
+	/*}*/
 
-	:global(body) {
-		overflow: hidden;
-	}
+	/*:global(body) {*/
+	/*	overflow: hidden;*/
+	/*}*/
 
 	/* this is the secret sauce */
 	/* reference: https://www.youtube.com/watch?v=c13gpBrnGEw */
