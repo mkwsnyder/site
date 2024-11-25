@@ -9,3 +9,4 @@
 </p>
 <p>Check back soon&trade; for a more "complete" version.</p>
 <p><a href="/projects" data-sveltekit-preload-data>Projects</a></p>
+<p>This site is (currently) best viewed on Firefox. You'll see why.</p>
