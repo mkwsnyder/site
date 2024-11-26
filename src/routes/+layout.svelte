@@ -20,7 +20,7 @@
 {#key data.currentRoute}
 	<div
 		class="content-grid"
-		in:fly={{ duration, delay: duration, x: -distance }}
+		in:fly={{ duration, delay: duration + 100, x: -distance }}
 		out:fly={{ duration, x: distance }}
 	>
 		{@render children()}
@@ -61,7 +61,7 @@
 	/*	z-index: -1;*/
 	/*}*/
 
-	/*:global(body) {*/
+	/*:global(html) {*/
 	/*	overflow: hidden;*/
 	/*}*/
 
