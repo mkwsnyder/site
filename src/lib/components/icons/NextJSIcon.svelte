@@ -1,13 +1,20 @@
+<script lang="ts">
+	import { type IconProps, iconSize } from '$lib/icon';
+
+	let { alt = 'Next.js Logo', size, ...rest }: IconProps = $props();
+	const {width, height} = iconSize(size);
+</script>
+
 <svg
-	width="2rem"
-	height="2rem"
+	{width}
+	{height}
+	{...rest}
 	viewBox="0 0 256 256"
-	version="1.1"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	preserveAspectRatio="xMidYMid"
 >
-	<title>Next.js Logo</title>
+	<title>{alt}</title>
 	<defs>
 		<circle id="path-1" cx="128" cy="128" r="128"></circle>
 		<linearGradient

@@ -7,7 +7,3 @@ status: In Limbo
 madeWith: [Svelte, TypeScript, ThreeJS]
 type: Personal
 ---
-
-<script>
-  import Icon from '$lib/components/Icon.svelte';
-</script>

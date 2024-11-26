@@ -1,17 +1,19 @@
-<!-- TODO: this -->
+<script lang="ts">
+	import { type IconProps, iconSize } from '$lib/icon';
 
-<script>
-	let { ...rest } = $props();
+	let { alt = 'TypeScript Logo', size, ...rest }: IconProps = $props();
+	const {width, height} = iconSize(size);
 </script>
 
 <svg
+	{width}
+	{height}
+	{...rest}
 	fill="none"
-	height="2rem"
 	viewBox="0 0 512 512"
-	width="2rem"
 	xmlns="http://www.w3.org/2000/svg"
 >
-	<title>TypeScript Logo</title>
+	<title>{alt}</title>
 	<rect fill="#3178c6" height="512" rx="50" width="512" /><rect
 		fill="#3178c6"
 		height="512"

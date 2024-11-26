@@ -1,30 +1,17 @@
-<!-- TODO: just guessed on the viewbox and sizing, maybe verify -->
+<script lang="ts">
+	import { type IconProps, iconSize } from '$lib/icon';
+
+	let { alt = 'Python Logo', size, ...rest }: IconProps = $props();
+	const {width, height} = iconSize(size);
+</script>
+
 <svg
-	version="1.0"
-	viewBox="0 0 120 128"
-	height="2rem"
-	width="2rem"
-	id="svg2"
-	sodipodi:version="0.32"
-	inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-	sodipodi:docname="python-logo-only.svg"
-	width4="92.070236pt"
-	width2="2rem"
-	height4="101.00108pt"
-	height2="2rem"
-	inkscape:export-filename="python-logo-only.png"
-	inkscape:export-xdpi="232.44"
-	inkscape:export-ydpi="232.44"
-	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	xmlns="http://www.w3.org/2000/svg"
-	xmlns:svg="http://www.w3.org/2000/svg"
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:cc="http://creativecommons.org/ns#"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	{width}
+	{height}
+	{...rest}
+	viewBox="0 0 112 112"
 >
-	<title>Python Logo</title>
+	<title>{alt}</title>
 	<defs id="defs4">
 		<linearGradient id="linearGradient2795">
 			<stop style="stop-color:#b8b8b8;stop-opacity:0.49803922;" offset="0" id="stop2797" />
@@ -71,7 +58,6 @@
 			gradientTransform="translate(100.2702,99.61116)"
 		/>
 		<linearGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient4689"
 			id="linearGradient2587"
 			gradientUnits="userSpaceOnUse"
@@ -82,7 +68,6 @@
 			y2="76.313133"
 		/>
 		<linearGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient4671"
 			id="linearGradient2589"
 			gradientUnits="userSpaceOnUse"
@@ -93,7 +78,6 @@
 			y2="144.75717"
 		/>
 		<linearGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient4689"
 			id="linearGradient2248"
 			gradientUnits="userSpaceOnUse"
@@ -104,7 +88,6 @@
 			y2="76.313133"
 		/>
 		<linearGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient4671"
 			id="linearGradient2250"
 			gradientUnits="userSpaceOnUse"
@@ -115,7 +98,6 @@
 			y2="144.75717"
 		/>
 		<linearGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient4671"
 			id="linearGradient2255"
 			gradientUnits="userSpaceOnUse"
@@ -126,7 +108,6 @@
 			y2="144.75717"
 		/>
 		<linearGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient4689"
 			id="linearGradient2258"
 			gradientUnits="userSpaceOnUse"
@@ -137,7 +118,6 @@
 			y2="76.313133"
 		/>
 		<radialGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient2795"
 			id="radialGradient2801"
 			cx="61.518883"
@@ -149,7 +129,6 @@
 			gradientUnits="userSpaceOnUse"
 		/>
 		<linearGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient4671"
 			id="linearGradient1475"
 			gradientUnits="userSpaceOnUse"
@@ -160,7 +139,6 @@
 			y2="137.27299"
 		/>
 		<linearGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient4689"
 			id="linearGradient1478"
 			gradientUnits="userSpaceOnUse"
@@ -171,7 +149,6 @@
 			y2="114.39767"
 		/>
 		<radialGradient
-			inkscape:collect="always"
 			xlink:href="#linearGradient2795"
 			id="radialGradient1480"
 			gradientUnits="userSpaceOnUse"
