@@ -18,13 +18,13 @@
 </div>
 
 {#key data.currentRoute}
-	<div
+	<main
 		class="content-grid"
-		in:fly={{ duration, delay: duration + 100, x: -distance }}
+		in:fly={{ duration, delay: duration, x: -distance }}
 		out:fly={{ duration, x: distance }}
 	>
 		{@render children()}
-	</div>
+	</main>
 {/key}
 
 <!--<div class="hide">-->
@@ -38,6 +38,7 @@
 <!--<div class="fake-body"></div>-->
 
 <style>
+
 	/*.hide {*/
 	/*	height: 0;*/
 	/*	overflow: hidden;*/
@@ -67,54 +68,54 @@
 
 	/* this is the secret sauce */
 	/* reference: https://www.youtube.com/watch?v=c13gpBrnGEw */
-	:global(.content-grid) {
-		--padding-inline: 2rem;
-		--content-max-width: 70ch;
-		--breakout-max-width: 80ch;
-		--breakout-big-max-width: 120rem;
+	/*:global(.content-grid) {*/
+	/*	--padding-inline: 2rem;*/
+	/*	--content-max-width: 70ch;*/
+	/*	--breakout-max-width: 80ch;*/
+	/*	--breakout-big-max-width: 120rem;*/
 
-		--breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
-		--breakout-big-size: calc(
-			(var(--breakout-big-max-width) - var(--content-max-width) - (var(--breakout-size) * 2)) / 2
-		);
+	/*	--breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);*/
+	/*	--breakout-big-size: calc(*/
+	/*		(var(--breakout-big-max-width) - var(--content-max-width) - (var(--breakout-size) * 2)) / 2*/
+	/*	);*/
 
-		display: grid;
+	/*	display: grid;*/
 
-		grid-template-columns:
-			[full-start]
-			minmax(var(--padding-inline), 1fr)
-			[breakout-big-start]
-			minmax(0, var(--breakout-big-size))
-			[breakout-start]
-			minmax(0, var(--breakout-size))
-			[content-start]
-			min(100% - (var(--padding-inline) * 2), var(--content-max-width))
-			[content-end]
-			minmax(0, var(--breakout-size))
-			[breakout-end]
-			minmax(0, var(--breakout-big-size))
-			[breakout-big-end]
-			minmax(var(--padding-inline), 1fr)
-			[full-end];
-	}
+	/*	grid-template-columns:*/
+	/*		[full-start]*/
+	/*		minmax(var(--padding-inline), 1fr)*/
+	/*		[breakout-big-start]*/
+	/*		minmax(0, var(--breakout-big-size))*/
+	/*		[breakout-start]*/
+	/*		minmax(0, var(--breakout-size))*/
+	/*		[content-start]*/
+	/*		min(100% - (var(--padding-inline) * 2), var(--content-max-width))*/
+	/*		[content-end]*/
+	/*		minmax(0, var(--breakout-size))*/
+	/*		[breakout-end]*/
+	/*		minmax(0, var(--breakout-big-size))*/
+	/*		[breakout-big-end]*/
+	/*		minmax(var(--padding-inline), 1fr)*/
+	/*		[full-end];*/
+	/*}*/
 
-	:global(.content-grid > :not(.breakout, .breakout-big, .full-width)),
-	:global(.bread > :not(.breakout, .breakout-big, .full-width)) {
-		grid-column: content;
-	}
+	/*:global(.content-grid > :not(.breakout, .breakout-big, .full-width)),*/
+	/*:global(.bread > :not(.breakout, .breakout-big, .full-width)) {*/
+	/*	grid-column: content;*/
+	/*}*/
 
-	:global(.content-grid > .breakout) {
-		grid-column: breakout;
-	}
+	/*:global(.content-grid > .breakout) {*/
+	/*	grid-column: breakout;*/
+	/*}*/
 
-	:global(.content-grid > .breakout-big) {
-		grid-column: breakout-big;
-	}
+	/*:global(.content-grid > .breakout-big) {*/
+	/*	grid-column: breakout-big;*/
+	/*}*/
 
-	:global(.content-grid > .full-width) {
-		grid-column: full;
+	/*:global(.content-grid > .full-width) {*/
+	/*	grid-column: full;*/
 
-		display: grid;
-		grid-template-columns: inherit;
-	}
+	/*	display: grid;*/
+	/*	grid-template-columns: inherit;*/
+	/*}*/
 </style>
