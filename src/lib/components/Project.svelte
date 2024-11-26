@@ -1,10 +1,12 @@
 <script lang="ts">
-	import Icon from '$lib/components/Icon.svelte';
 	import SvelteIcon from '$lib/components/icons/SvelteIcon.svelte';
 	import TypeScriptIcon from '$lib/components/icons/TypeScriptIcon.svelte';
 	import ReactIcon from '$lib/components/icons/ReactIcon.svelte';
 	import NextJSIcon from '$lib/components/icons/NextJSIcon.svelte';
 	import PythonIcon from '$lib/components/icons/PythonIcon.svelte';
+	import LinkIcon from '$lib/components/icons/LinkIcon.svelte';
+	import YoutubeIcon from '$lib/components/icons/YoutubeIcon.svelte';
+	import GithubIcon from '$lib/components/icons/GithubIcon.svelte';
 
 	interface Props {
 		name: string;
@@ -63,17 +65,17 @@
 		<div>
 			{#if youtube}
 				<a href={youtube} target="_blank">
-					<Icon icon="youtube" alt="Video Link" />
+					<YoutubeIcon alt="Video Link" />
 				</a>
 			{/if}
 			{#if github}
 				<a href={github} target="_blank">
-					<Icon icon="github" alt="Github Repo" />
+					<GithubIcon alt="Github Repo" />
 				</a>
 			{/if}
 			{#if url}
 				<a href={url} target="_blank">
-					<Icon icon="link" alt="Project Link" />
+					<LinkIcon alt="Project Link" />
 				</a>
 			{/if}
 		</div>
@@ -100,8 +102,10 @@
 
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1rem;
 		position: relative;
+
+		height: 100%; /* parent is a div for animate:flip */
 	}
 
 	.footer {
