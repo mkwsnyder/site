@@ -7,6 +7,14 @@
 	import LinkIcon from '$lib/components/icons/LinkIcon.svelte';
 	import YoutubeIcon from '$lib/components/icons/YoutubeIcon.svelte';
 	import GithubIcon from '$lib/components/icons/GithubIcon.svelte';
+	import ThreeJSLogo from '$lib/components/icons/ThreeJSLogo.svelte';
+	import JavaScriptLogo from '$lib/components/icons/JavaScriptLogo.svelte';
+	import ReleasedIcon from '$lib/components/icons/ReleasedIcon.svelte';
+	import ConstructionIcon from '$lib/components/icons/ConstructionIcon.svelte';
+	import BlockIcon from '$lib/components/icons/BlockIcon.svelte';
+	import WorkIcon from '$lib/components/icons/WorkIcon.svelte';
+	import StarIcon from '$lib/components/icons/StarIcon.svelte';
+	import Ribbon from '$lib/components/Ribbon.svelte';
 
 	interface Props {
 		name: string;
@@ -33,10 +41,13 @@
 		youtube,
 		class: className,
 	}: Props = $props();
+
+	const colorType = (type === 'Professional' ? 'blue' : 'orange')
+	const colorStatus = (status === 'Shipped' ? 'green' : status === 'In Development' ? 'yellow' : 'red')
 </script>
 
 <div class="project {className}">
-	<a href={path} data-sveltekit-preload-data="hover">
+	<a class="body" href={path} data-sveltekit-preload-data="hover">
 		<h2>{name}</h2>
 		<p class="description">{description}</p>
 	</a>
@@ -52,11 +63,17 @@
 			{#if madeWith?.includes('TypeScript')}
 				<TypeScriptIcon />
 			{/if}
-			{#if madeWith?.includes('Next JS')}
+			{#if madeWith?.includes('Next.js')}
 				<NextJSIcon />
 			{/if}
 			{#if madeWith?.includes('Python')}
 				<PythonIcon />
+			{/if}
+			{#if madeWith?.includes('Three.js')}
+				<ThreeJSLogo stroke="white" />
+			{/if}
+			{#if madeWith?.includes('JavaScript')}
+				<JavaScriptLogo />
 			{/if}
 			<!-- TODO: JS	-->
 		</div>
@@ -81,24 +98,71 @@
 		</div>
 	</div>
 
-	<div class="test">
-		<div
-			class:green={status === 'Shipped'}
-			class:yellow={status === 'In Development'}
-			class:red={status === 'In Limbo'}
-		>
-			{status}
-		</div>
-		<div class:blue={type === 'Professional'} class:orange={type === 'Personal'}>{type}</div>
-	</div>
+	<!--	<div class="test">-->
+	<!--		<div-->
+	<!--			class:green={status === 'Shipped'}-->
+	<!--			class:yellow={status === 'In Development'}-->
+	<!--			class:red={status === 'In Limbo'}-->
+	<!--		>-->
+	<!--			{#if status === 'Shipped'}-->
+	<!--				<ReleasedIcon />-->
+	<!--			{/if}-->
+	<!--			{#if status === 'In Development'}-->
+	<!--				<ConstructionIcon />-->
+	<!--			{/if}-->
+	<!--			{#if status === 'In Limbo'}-->
+	<!--				<BlockIcon />-->
+	<!--			{/if}-->
+	<!--		</div>-->
+	<!--		<div class:blue={type === 'Professional'} class:orange={type === 'Personal'}>-->
+	<!--			{#if type === 'Professional'}-->
+	<!--				<WorkIcon />-->
+	<!--			{/if}-->
+	<!--			{#if type === 'Personal'}-->
+	<!--				<StarIcon />-->
+	<!--			{/if}-->
+	<!--		</div>-->
+	<!--	</div>-->
+
+<!--	<div class="ribbons">-->
+		<Ribbon color={colorType}>
+			{#snippet hidden()}
+				{type}
+			{/snippet}
+
+			{#if type === 'Professional'}
+				<WorkIcon height={24} />
+			{/if}
+			{#if type === 'Personal'}
+				<StarIcon height={24} />
+			{/if}
+		</Ribbon>
+
+		<Ribbon color={colorStatus} second>
+			{#snippet hidden()}
+				{status}
+			{/snippet}
+
+			{#if status === 'Shipped'}
+				<ReleasedIcon height={24} />
+			{/if}
+			{#if status === 'In Development'}
+				<ConstructionIcon height={24} />
+			{/if}
+			{#if status === 'In Limbo'}
+				<BlockIcon height={24} />
+			{/if}
+		</Ribbon>
+<!--	</div>-->
 
 	<!--{@render children?.()}-->
 </div>
 
 <style>
 	.project {
-		background: #201616;
+		background: #222;
 		padding: 0.75rem;
+		border-radius: 0.25rem;
 
 		display: flex;
 		flex-direction: column;
@@ -106,6 +170,10 @@
 		position: relative;
 
 		height: 100%; /* parent is a div for animate:flip */
+	}
+
+	.body {
+		padding-right: 1.5rem;
 	}
 
 	.footer {
@@ -127,7 +195,15 @@
 		text-overflow: ellipsis;
 	}
 
+	.ribbons {
+		/*position: absolute;*/
+		/*top: 0;*/
+		/*right: 0;*/
+	}
+
 	.test {
+		display: none;
+
 		position: absolute;
 		top: 0.5rem;
 		right: -0.75rem;
