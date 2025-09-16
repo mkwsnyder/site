@@ -1,6 +1,6 @@
 ---
 name: Monocle
-date: 2023-01-01
+date: 2023-06-01
 url: https://monocle.usu.edu
 description: USU's administrative identity system.
 status: Shipped
