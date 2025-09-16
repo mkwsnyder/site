@@ -2,7 +2,7 @@ import type { SVGAttributes } from 'svelte/elements';
 
 export interface IconProps extends SVGAttributes<SVGElement> {
 	alt?: string;
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 }
 
 const rem = {
@@ -11,6 +11,7 @@ const rem = {
 	md: 2,
 	lg: 3,
 	xl: 4,
+	xxl: 6,
 };
 
 export function iconSize(size: IconProps['size']) {
