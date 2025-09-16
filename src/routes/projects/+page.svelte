@@ -11,10 +11,12 @@
 	// TODO: it would be cool to maintain this state as URL params
 
 	let filterTypes = $state('');
+	let filterStatus = $state('');
 	let filterTools = $state([]);
 
 	// TODO: arrays so they can be sorted?
 	const typeOptions = new Set(data.projects.flatMap((project) => project.meta.type));
+	const statusOptions = new Set(data.projects.flatMap((project) => project.meta.status));
 	const toolOptions = new Set(data.projects.flatMap((project) => project.meta.madeWith));
 
 	let filteredProjects = $derived.by(() => {
@@ -22,6 +24,9 @@
 
 		if (filterTypes.length > 0)
 			filtered = filtered.filter((project) => filterTypes.includes(project.meta.type));
+
+		if (filterStatus.length > 0)
+			filtered = filtered.filter((project) => filterStatus.includes(project.meta.status));
 
 		if (filterTools.length > 0) {
 			// filtered = filtered.filter((project) => project.meta.madeWith.some((tool) => toolOptions.has(tool)));
@@ -31,6 +36,12 @@
 		}
 		return filtered;
 	});
+
+	function resetFilters() {
+		filterTypes = '';
+		filterStatus = '';
+		filterTools = [];
+	}
 </script>
 
 <svelte:head>
@@ -46,35 +57,64 @@
 	</i>
 </p>
 
-<div class="input-group">
-	<!-- TODO: pretend it's a button -->
-	<label>
-		<input type="radio" bind:group={filterTypes} value="" />
-		All
-	</label>
-
-	{#each typeOptions as type}
+<div class="filters">
+	<div>
+		<span>Project Type</span>
+	</div>
+	<div class="input-group">
+		<!-- TODO: pretend it's a button -->
 		<label>
-			<!-- TODO: radio-->
-			<input type="radio" bind:group={filterTypes} value={type} />
-			{type}
+			<input type="radio" bind:group={filterTypes} value="" />
+			All
 		</label>
-	{/each}
+
+		{#each typeOptions as type}
+			<label>
+				<input type="radio" bind:group={filterTypes} value={type} />
+				{type}
+			</label>
+		{/each}
+	</div>
+
+	<div>
+		<span>Project Status</span>
+	</div>
+	<div class="input-group">
+		<!-- TODO: pretend it's a button -->
+		<label>
+			<input type="radio" bind:group={filterStatus} value="" />
+			All
+		</label>
+
+		{#each statusOptions as type}
+			<label>
+				<input type="radio" bind:group={filterStatus} value={type} />
+				{type}
+			</label>
+		{/each}
+	</div>
+
+	<div>
+		<span>Project Tools</span>
+	</div>
+	<div class="input-group">
+		{#each toolOptions as type}
+			<label>
+				<input type="checkbox" bind:group={filterTools} value={type} />
+				{type}
+			</label>
+		{/each}
+		<button onclick={() => (filterTools = [])} disabled={filterTools.length === 0}
+			>Reset Tools</button
+		>
+	</div>
 </div>
 
-<div class="input-group">
-	{#each toolOptions as type}
-		<label>
-			<input type="checkbox" bind:group={filterTools} value={type} />
-			{type}
-		</label>
-	{/each}
-</div>
+<button class="reset-all" onclick={resetFilters}>Reset All</button>
 
 <div class="projects breakout-big">
 	{#each filteredProjects as { ...props }, i (props.meta.name)}
 		<div
-			class="project-container"
 			animate:flip={{ duration: 300, easing: quartOut }}
 			style:--i={i}
 			in:fly|global={{ y: -20, duration: 300, delay: 30 * i }}
@@ -82,12 +122,10 @@
 		>
 			<Project path={props.path} {...props.meta} />
 		</div>
+	{:else}
+		<p class="no-projects">No projects found with current filters.</p>
 	{/each}
 </div>
-
-{#if filteredProjects.length === 0}
-	<p>No projects found with current filters.</p>
-{/if}
 
 <style>
 	.projects {
@@ -103,27 +141,27 @@
 		}
 
 		grid-template-columns: repeat(auto-fit, minmax(40ch, var(--dynamic-width, 1fr)));
-		/*grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));*/
 	}
 
 	.input-group {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.75rem;
+		column-gap: 0.75rem;
 	}
 
-	/*.project-container {*/
+	.filters {
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 0.5rem;
 
-	/*	opacity: 0;*/
-	/*	transform: translateX(100%);*/
-	/*	transition-property: opacity, transform;*/
-	/*	transition-duration: 0.3s;*/
-	/*	transition-timing-function: cubic-bezier(0.750, -0.015, 0.565, 1.055);*/
-	/*}*/
+		margin-bottom: 1rem;
+	}
 
-	/*.project-container.active {*/
-	/*	opacity: 1;*/
-	/*	transform: translateX(0);*/
-	/*	transition-delay: calc(0.055s * var(--i));*/
-	/*}*/
+	.reset-all {
+		margin-bottom: 1rem;
+	}
+
+	.no-projects {
+		text-align: center;
+	}
 </style>
