@@ -2,6 +2,12 @@
 	import { pageTitle } from '$lib/utils';
 
 	let { data } = $props();
+
+	const formattedDate = new Date(data.date).toLocaleDateString('en-US', {
+		month: 'long',
+		year: 'numeric',
+		timeZone: 'UTC',
+	});
 </script>
 
 <svelte:head>
@@ -14,10 +20,10 @@
 	<a href="/projects">back</a>
 </p>
 
-<div><b>Date (approx):</b> {data.date}</div>
+<div><b>Date of last activity (approx):</b> {formattedDate}</div>
 <div><b>Status:</b> {data.status}</div>
 <div><b>Description:</b> {data.description}</div>
-<div><b>Made with:</b> {data.madeWith}</div>
+<div><b>Made with:</b> {data.madeWith.join(', ')}</div>
 <div><b>Type:</b> {data.type}</div>
 
 {#if data.url}
