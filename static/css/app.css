@@ -2,12 +2,14 @@ html {
 	color-scheme: dark light;
 	/* TODO: in the actual theme selectors, force `color-scheme` to be either dark or light */
 
-	background: black;
+	background: #111;
 	color: #dfdada;
 
 	/* temp font settings */
 	font-family: 'Inter', sans-serif;
 	line-height: 1.5;
+
+	interpolate-size: allow-keywords;
 }
 
 /* for page transitions */
