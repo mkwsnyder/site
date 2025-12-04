@@ -17,7 +17,7 @@
 	// TODO: arrays so they can be sorted?
 	const typeOptions = new Set(data.projects.flatMap((project) => project.meta.type));
 	const statusOptions = new Set(data.projects.flatMap((project) => project.meta.status));
-	const toolOptions = new Set(data.projects.flatMap((project) => project.meta.madeWith));
+	const toolOptions = new Set(data.projects.flatMap((project) => project.meta.madeWith).sort());
 
 	let filteredProjects = $derived.by(() => {
 		let filtered = data.projects;

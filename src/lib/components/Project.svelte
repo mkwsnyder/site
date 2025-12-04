@@ -15,6 +15,8 @@
 	import WorkIcon from '$lib/components/icons/WorkIcon.svelte';
 	import StarIcon from '$lib/components/icons/StarIcon.svelte';
 	import Ribbon from '$lib/components/Ribbon.svelte';
+	import GodotIcon from './icons/GodotIcon.svelte';
+	import AsepriteIcon from './icons/AsepriteIcon.svelte';
 
 	interface Props {
 		name: string;
@@ -42,8 +44,9 @@
 		class: className,
 	}: Props = $props();
 
-	const colorType = (type === 'Professional' ? 'blue' : 'orange')
-	const colorStatus = (status === 'Shipped' ? 'green' : status === 'In Development' ? 'yellow' : 'red')
+	const colorType = type === 'Professional' ? 'blue' : 'orange';
+	const colorStatus =
+		status === 'Shipped' ? 'green' : status === 'In Development' ? 'yellow' : 'red';
 </script>
 
 <div class="project {className}">
@@ -74,6 +77,12 @@
 			{/if}
 			{#if madeWith?.includes('JavaScript')}
 				<JavaScriptLogo />
+			{/if}
+			{#if madeWith?.includes('Godot')}
+				<GodotIcon />
+			{/if}
+			{#if madeWith?.includes('Aseprite')}
+				<AsepriteIcon fill="white" />
 			{/if}
 			<!-- TODO: JS	-->
 		</div>
@@ -124,36 +133,36 @@
 	<!--		</div>-->
 	<!--	</div>-->
 
-<!--	<div class="ribbons">-->
-		<Ribbon color={colorType}>
-			{#snippet hidden()}
-				{type}
-			{/snippet}
+	<!--	<div class="ribbons">-->
+	<Ribbon color={colorType}>
+		{#snippet hidden()}
+			{type}
+		{/snippet}
 
-			{#if type === 'Professional'}
-				<WorkIcon height={24} />
-			{/if}
-			{#if type === 'Personal'}
-				<StarIcon height={24} />
-			{/if}
-		</Ribbon>
+		{#if type === 'Professional'}
+			<WorkIcon height={24} />
+		{/if}
+		{#if type === 'Personal'}
+			<StarIcon height={24} />
+		{/if}
+	</Ribbon>
 
-		<Ribbon color={colorStatus} second>
-			{#snippet hidden()}
-				{status}
-			{/snippet}
+	<Ribbon color={colorStatus} second>
+		{#snippet hidden()}
+			{status}
+		{/snippet}
 
-			{#if status === 'Shipped'}
-				<ReleasedIcon height={24} />
-			{/if}
-			{#if status === 'In Development'}
-				<ConstructionIcon height={24} />
-			{/if}
-			{#if status === 'In Limbo'}
-				<BlockIcon height={24} />
-			{/if}
-		</Ribbon>
-<!--	</div>-->
+		{#if status === 'Shipped'}
+			<ReleasedIcon height={24} />
+		{/if}
+		{#if status === 'In Development'}
+			<ConstructionIcon height={24} />
+		{/if}
+		{#if status === 'In Limbo'}
+			<BlockIcon height={24} />
+		{/if}
+	</Ribbon>
+	<!--	</div>-->
 
 	<!--{@render children?.()}-->
 </div>
