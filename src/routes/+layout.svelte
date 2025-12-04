@@ -10,11 +10,11 @@
 </script>
 
 <svelte:head>
-	<title>msnyder.dev</title>
+	<title>rainrain.dev</title>
 </svelte:head>
 
 <div>
-	<a href="/" data-sveltekit-preload-data="hover">msnyder.dev</a>
+	<a href="/" data-sveltekit-preload-data="hover">rainrain.dev</a>
 </div>
 
 {#key data.currentRoute}
@@ -38,7 +38,6 @@
 <!--<div class="fake-body"></div>-->
 
 <style>
-
 	/*.hide {*/
 	/*	height: 0;*/
 	/*	overflow: hidden;*/
