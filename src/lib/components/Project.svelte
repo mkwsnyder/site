@@ -111,7 +111,7 @@
 	<!--		<div-->
 	<!--			class:green={status === 'Shipped'}-->
 	<!--			class:yellow={status === 'In Development'}-->
-	<!--			class:red={status === 'In Limbo'}-->
+	<!--			class:red={status === 'On Hold'}-->
 	<!--		>-->
 	<!--			{#if status === 'Shipped'}-->
 	<!--				<ReleasedIcon />-->
@@ -119,7 +119,7 @@
 	<!--			{#if status === 'In Development'}-->
 	<!--				<ConstructionIcon />-->
 	<!--			{/if}-->
-	<!--			{#if status === 'In Limbo'}-->
+	<!--			{#if status === 'On Hold'}-->
 	<!--				<BlockIcon />-->
 	<!--			{/if}-->
 	<!--		</div>-->
@@ -158,7 +158,7 @@
 		{#if status === 'In Development'}
 			<ConstructionIcon height={24} />
 		{/if}
-		{#if status === 'In Limbo'}
+		{#if status === 'On Hold'}
 			<BlockIcon height={24} />
 		{/if}
 	</Ribbon>
