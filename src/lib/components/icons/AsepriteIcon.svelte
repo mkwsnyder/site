@@ -8,11 +8,11 @@
 <svg
 	{width}
 	{height}
-	{...rest}
 	fill="#000000"
 	viewBox="0 0 24 24"
 	role="img"
 	xmlns="http://www.w3.org/2000/svg"
+	{...rest}
 >
 	<title>{alt}</title>
 	<path
