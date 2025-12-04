@@ -3,8 +3,7 @@
 	import { pageTitle } from '$lib/utils';
 	import { flip } from 'svelte/animate';
 	import { quartOut } from 'svelte/easing';
-	import { fade, fly } from 'svelte/transition';
-	import { browser } from '$app/environment';
+	import { fly } from 'svelte/transition';
 
 	let { data } = $props();
 

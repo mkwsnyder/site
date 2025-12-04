@@ -200,15 +200,16 @@
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 2;
+		line-clamp: 2;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
-	.ribbons {
-		/*position: absolute;*/
-		/*top: 0;*/
-		/*right: 0;*/
-	}
+	/*.ribbons {*/
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*right: 0;*/
+	/*}*/
 
 	.test {
 		display: none;
