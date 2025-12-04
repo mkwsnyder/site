@@ -4,7 +4,7 @@ export type Project = {
 	url?: string;
 	github?: string;
 	description: string;
-	status: 'In Development' | 'Shipped' | 'In Limbo';
+	status: 'In Development' | 'Shipped' | 'On Hold';
 	madeWith: string[];
 	type: 'Personal' | 'School' | 'Work' | 'Open Source' | 'Other';
 };
