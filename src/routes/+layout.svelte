@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { homeUrl } from '$lib/constants';
 	import type { LayoutData } from './$types';
 	import type { Snippet } from 'svelte';
 	import { fly } from 'svelte/transition';
@@ -10,11 +11,13 @@
 </script>
 
 <svelte:head>
-	<title>rainrain.dev</title>
+	<title>{homeUrl}</title>
 </svelte:head>
 
 <div>
-	<a href="/" data-sveltekit-preload-data="hover">rainrain.dev</a>
+	<a href="/" data-sveltekit-preload-data="hover">{homeUrl}</a>
+	<a href="/projects" data-sveltekit-preload-data="hover">projects</a>
+	<a href="/favorites" data-sveltekit-preload-data="hover">favorites</a>
 </div>
 
 {#key data.currentRoute}
@@ -38,6 +41,9 @@
 <!--<div class="fake-body"></div>-->
 
 <style>
+	main {
+		padding-bottom: 2rem;
+	}
 	/*.hide {*/
 	/*	height: 0;*/
 	/*	overflow: hidden;*/

@@ -1,7 +1,8 @@
+import { fetchMarkdownPage } from '$lib/utils';
+
 export async function load({ params }) {
-	const project = await import(`../${params.project}.md`);
-	const { name, date, madeWith, description, status, type, url, github } = project.metadata;
-	const content = project.default;
+	const { default: content, metadata } = await fetchMarkdownPage('projects', params.project);
+	const { name, date, madeWith, description, status, type, url, github } = metadata;
 
 	return {
 		content,

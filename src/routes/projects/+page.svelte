@@ -14,23 +14,25 @@
 	let filterTools = $state([]);
 
 	// TODO: arrays so they can be sorted?
-	const typeOptions = new Set(data.projects.flatMap((project) => project.meta.type));
-	const statusOptions = new Set(data.projects.flatMap((project) => project.meta.status));
-	const toolOptions = new Set(data.projects.flatMap((project) => project.meta.madeWith).sort());
+	const typeOptions = $derived(new Set(data.projects.flatMap((project) => project.type)));
+	const statusOptions = $derived(new Set(data.projects.flatMap((project) => project.status)));
+	const toolOptions = $derived(
+		new Set(data.projects.flatMap((project) => project.madeWith).sort()),
+	);
 
 	let filteredProjects = $derived.by(() => {
 		let filtered = data.projects;
 
 		if (filterTypes.length > 0)
-			filtered = filtered.filter((project) => filterTypes.includes(project.meta.type));
+			filtered = filtered.filter((project) => filterTypes.includes(project.type));
 
 		if (filterStatus.length > 0)
-			filtered = filtered.filter((project) => filterStatus.includes(project.meta.status));
+			filtered = filtered.filter((project) => filterStatus.includes(project.status));
 
 		if (filterTools.length > 0) {
 			// filtered = filtered.filter((project) => project.meta.madeWith.some((tool) => toolOptions.has(tool)));
 			filtered = filtered.filter((project) =>
-				filterTools.every((tool) => project.meta.madeWith.includes(tool)),
+				filterTools.every((tool) => project.madeWith.includes(tool)),
 			);
 		}
 		return filtered;
@@ -44,7 +46,7 @@
 </script>
 
 <svelte:head>
-	<title>{pageTitle(['Projects'])}</title>
+	<title>{pageTitle('Projects')}</title>
 </svelte:head>
 
 <h1>Projects</h1>
@@ -112,14 +114,14 @@
 <button class="reset-all" onclick={resetFilters}>Reset All</button>
 
 <div class="projects breakout-big">
-	{#each filteredProjects as { ...props }, i (props.meta.name)}
+	{#each filteredProjects as { ...props }, i (props.name)}
 		<div
 			animate:flip={{ duration: 300, easing: quartOut }}
 			style:--i={i}
 			in:fly|global={{ y: -20, duration: 300, delay: 30 * i }}
 			out:fly={{ y: 20, duration: 300 }}
 		>
-			<Project path={props.path} {...props.meta} />
+			<Project {...props} />
 		</div>
 	{:else}
 		<p class="no-projects">No projects found with current filters.</p>
