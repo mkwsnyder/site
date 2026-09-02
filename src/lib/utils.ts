@@ -9,7 +9,7 @@ type MarkdownModule = {
 
 // Vite only accepts a static literal here, so glob every markdown route once and
 // filter it down per request instead of building the pattern from `route`.
-const markdownFiles = import.meta.glob<MarkdownModule>('/src/lib/md/**/*.md');
+const markdownFiles = import.meta.glob<MarkdownModule>('/md/**/*.md');
 
 /**
  * A page can live directly in its route folder (`projects/monocle.md`) or in a
@@ -17,12 +17,12 @@ const markdownFiles = import.meta.glob<MarkdownModule>('/src/lib/md/**/*.md');
  * assets can sit next to it. Both resolve to the same `/projects/monocle` URL.
  */
 function candidatePaths(route: string, slug: string) {
-	return [`/src/lib/md/${route}/${slug}.md`, `/src/lib/md/${route}/${slug}/${slug}.md`];
+	return [`/md/${route}/${slug}.md`, `/md/${route}/${slug}/${slug}.md`];
 }
 
 /** The URL slug for a markdown file, or null if it isn't one of the two layouts above. */
 function slugFor(route: string, filePath: string) {
-	const segments = filePath.slice(`/src/lib/md/${route}/`.length, -'.md'.length).split('/');
+	const segments = filePath.slice(`/md/${route}/`.length, -'.md'.length).split('/');
 
 	if (segments.length === 1) return segments[0];
 	if (segments.length === 2 && segments[0] === segments[1]) return segments[0];
@@ -31,7 +31,7 @@ function slugFor(route: string, filePath: string) {
 }
 
 export async function fetchMarkdownPages<T>(route: string, includeContent = false): Promise<T[]> {
-	const prefix = `/src/lib/md/${route}/`;
+	const prefix = `/md/${route}/`;
 
 	const pages = Object.entries(markdownFiles)
 		.filter(([path]) => path.startsWith(prefix))
