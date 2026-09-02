@@ -1,3 +1,5 @@
+export const prerender = true; // this shouldn't be necessary, and yet here we are
+
 import type { Favorite } from '$lib/types';
 import { fetchMarkdownPages } from '$lib/utils';
 import { json } from '@sveltejs/kit';
