@@ -44,9 +44,10 @@
 		class: className,
 	}: Props = $props();
 
-	const colorType = type === 'Professional' ? 'blue' : 'orange';
-	const colorStatus =
-		status === 'Shipped' ? 'green' : status === 'In Development' ? 'yellow' : 'red';
+	const colorType = $derived(type === 'Professional' ? 'blue' : 'orange');
+	const colorStatus = $derived(
+		status === 'Shipped' ? 'green' : status === 'In Development' ? 'yellow' : 'red',
+	);
 </script>
 
 <div class="project {className}">
