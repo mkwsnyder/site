@@ -2,15 +2,10 @@
 	import { type IconProps, iconSize } from '$lib/icon';
 
 	let { alt = 'Python Logo', size, ...rest }: IconProps = $props();
-	const {width, height} = iconSize(size);
+	const { width, height } = $derived(iconSize(size));
 </script>
 
-<svg
-	{width}
-	{height}
-	{...rest}
-	viewBox="0 0 112 112"
->
+<svg {width} {height} {...rest} viewBox="0 0 112 112">
 	<title>{alt}</title>
 	<defs id="defs4">
 		<linearGradient id="linearGradient2795">

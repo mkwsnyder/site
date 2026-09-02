@@ -2,7 +2,7 @@
 	import { type IconProps, iconSize } from '$lib/icon';
 
 	let { alt = 'TypeScript Logo', size, ...rest }: IconProps = $props();
-	const {width, height} = iconSize(size);
+	const { width, height } = $derived(iconSize(size));
 </script>
 
 <svg

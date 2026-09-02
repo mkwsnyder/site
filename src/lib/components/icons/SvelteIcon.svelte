@@ -2,16 +2,10 @@
 	import { type IconProps, iconSize } from '$lib/icon';
 
 	let { alt = 'Svelte Logo', size, ...rest }: IconProps = $props();
-	const {width, height} = iconSize(size);
+	const { width, height } = $derived(iconSize(size));
 </script>
 
-<svg
-	viewBox="0 0 98.1 118"
-	style="enable-background:new 0 0 98.1 118;"
-	{width}
-	{height}
-	{...rest}
->
+<svg viewBox="0 0 98.1 118" style="enable-background:new 0 0 98.1 118;" {width} {height} {...rest}>
 	<title>{alt}</title>
 	<style type="text/css">
 		.st0 {

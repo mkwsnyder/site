@@ -2,7 +2,7 @@
 	import { type IconProps, iconSize } from '$lib/icon';
 
 	let { alt = 'JavaScript Logo', size, ...rest }: IconProps = $props();
-	const { width, height } = iconSize(size);
+	const { width, height } = $derived(iconSize(size));
 </script>
 
 <svg {width} {height} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630">
