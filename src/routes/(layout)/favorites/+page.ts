@@ -1,8 +1,8 @@
-import type { Favorite } from '$lib/types.js';
+import type { FavoriteMeta } from '$lib/types.js';
 import { fetchMarkdownPages } from '$lib/utils';
 
 async function category(name: string) {
-	const pages = await fetchMarkdownPages<Favorite>(`favorites/${name}`, true);
+	const pages = await fetchMarkdownPages<FavoriteMeta>(`favorites/${name}`, true);
 
 	return pages
 		.sort((a, b) => a.placement - b.placement)
@@ -10,14 +10,15 @@ async function category(name: string) {
 }
 
 export const load = async () => {
-	const [games, books, movies, shows] = await Promise.all([
+	const [games, books, movies, shows, albums] = await Promise.all([
 		category('games'),
 		category('books'),
 		category('movies'),
 		category('shows'),
+		category('albums'),
 	]);
 
 	return {
-		favorites: { games, books, movies, shows },
+		favorites: { games, books, movies, shows, albums },
 	};
 };

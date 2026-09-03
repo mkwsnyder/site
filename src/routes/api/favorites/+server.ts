@@ -1,14 +1,14 @@
 export const prerender = true; // this shouldn't be necessary, and yet here we are
 
-import type { Favorite } from '$lib/types';
+import type { FavoriteMeta } from '$lib/types';
 import { fetchMarkdownPages } from '$lib/utils';
 import { json } from '@sveltejs/kit';
 
 export const GET = async () => {
-	const games = await fetchMarkdownPages<Favorite>('favorites/games');
-	const books = await fetchMarkdownPages<Favorite>('favorites/books');
-	const movies = await fetchMarkdownPages<Favorite>('favorites/movies');
-	const shows = await fetchMarkdownPages<Favorite>('favorites/shows');
+	const games = await fetchMarkdownPages<FavoriteMeta>('favorites/games');
+	const books = await fetchMarkdownPages<FavoriteMeta>('favorites/books');
+	const movies = await fetchMarkdownPages<FavoriteMeta>('favorites/movies');
+	const shows = await fetchMarkdownPages<FavoriteMeta>('favorites/shows');
 
 	const sortedGames = games
 		.sort((a, b) => {

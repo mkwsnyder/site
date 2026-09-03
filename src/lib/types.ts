@@ -16,9 +16,12 @@ export type Project = MarkdownEntry & {
 	type: 'Personal' | 'School' | 'Work' | 'Open Source' | 'Other';
 };
 
-export type Favorite = MarkdownEntry & {
+export type FavoriteMeta = MarkdownEntry & {
 	name: string;
 	description: string;
+	creator: string;
+	year: string;
+	link?: string;
 	placement: number;
 	image: string;
 };
