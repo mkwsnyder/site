@@ -14,11 +14,17 @@
 	<title>{homeUrl}</title>
 </svelte:head>
 
-<div>
+<nav>
 	<a href="/" data-sveltekit-preload-data="hover">{homeUrl}</a>
-	<a href="/projects" data-sveltekit-preload-data="hover">projects</a>
-	<a href="/favorites" data-sveltekit-preload-data="hover">favorites</a>
-</div>
+
+	<div class="sub-nav">
+		<a href="/projects" data-sveltekit-preload-data="hover">projects</a>
+		<a href="/favorites" data-sveltekit-preload-data="hover">favorites</a>
+		<a href="/blog" data-sveltekit-preload-data="hover">blog</a>
+		<a href="/gallery" data-sveltekit-preload-data="hover">gallery</a>
+		<a href="/recipes" data-sveltekit-preload-data="hover">recipes</a>
+	</div>
+</nav>
 
 {#key data.currentRoute}
 	<main
@@ -42,7 +48,24 @@
 
 <style>
 	main {
-		padding-bottom: 2rem;
+		padding-block: 2rem;
+	}
+
+	nav {
+		display: flex;
+		/*flex-direction: row;*/
+		justify-content: space-between;
+
+		padding-inline: 4rem;
+		padding-block: 2rem;
+
+		background: #222;
+	}
+
+	.sub-nav {
+		display: flex;
+
+		gap: 2rem;
 	}
 	/*.hide {*/
 	/*	height: 0;*/
