@@ -12,7 +12,7 @@
 </script>
 
 <!-- TODO: figure out why tabindex isn't working -->
-<div class="ribbon {color}" class:second={second}>
+<div class="ribbon {color}" class:second>
 	{#if hidden}
 		<div class="hidden">
 			{@render hidden?.()}
