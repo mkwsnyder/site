@@ -52,21 +52,21 @@ h6 {
 	display: grid;
 
 	grid-template-columns:
-			[full-start]
-			minmax(var(--padding-inline), 1fr)
-			[breakout-big-start]
-			minmax(0, var(--breakout-big-size))
-			[breakout-start]
-			minmax(0, var(--breakout-size))
-			[content-start]
-			min(100% - (var(--padding-inline) * 2), var(--content-max-width))
-			[content-end]
-			minmax(0, var(--breakout-size))
-			[breakout-end]
-			minmax(0, var(--breakout-big-size))
-			[breakout-big-end]
-			minmax(var(--padding-inline), 1fr)
-			[full-end];
+		[full-start]
+		minmax(var(--padding-inline), 1fr)
+		[breakout-big-start]
+		minmax(0, var(--breakout-big-size))
+		[breakout-start]
+		minmax(0, var(--breakout-size))
+		[content-start]
+		min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+		[content-end]
+		minmax(0, var(--breakout-size))
+		[breakout-end]
+		minmax(0, var(--breakout-big-size))
+		[breakout-big-end]
+		minmax(var(--padding-inline), 1fr)
+		[full-end];
 }
 
 .content-grid > :not(.breakout, .breakout-big, .full-width),
@@ -87,4 +87,9 @@ h6 {
 
 	display: grid;
 	grid-template-columns: inherit;
+}
+
+/* this exists for the error page because of the way svelte assigns locally scoped css classes */
+.italic {
+	font-style: italic;
 }
