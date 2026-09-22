@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Breakout from '$lib/components/breakout/breakout.svelte';
+	import Breakout from '$lib/components/breakout/Breakout.svelte';
 	import Shelf from '$lib/components/Shelf.svelte';
 	import type { FavoriteMeta } from '$lib/types.js';
 	import { pageTitle } from '$lib/utils.js';

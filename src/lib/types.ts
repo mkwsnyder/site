@@ -25,3 +25,11 @@ export type FavoriteMeta = MarkdownEntry & {
 	placement: number;
 	image: string;
 };
+
+export type GalleryMeta = MarkdownEntry & {
+	name: string;
+	altText: string;
+	date: string;
+	location?: string;
+	image: string;
+};
